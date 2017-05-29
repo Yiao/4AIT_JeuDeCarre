@@ -42,9 +42,9 @@ public  class IAClass {
                             //o     E      o
                             //n            n
                             //    Button
-                            ((Node) event.getTarget()).getScene().getWindow().getScene().lookup("#bt_bot_" + (i - 1) + "_" + j).setStyle("-fx-base: rgb(0, 246, 40);");
-                            StartPlate.getPlateau()[i - 1][j].getTraits().setBas(true);
-                            StartPlate.getPlateau()[i - 1][j].setColor("#2c3e50");
+                            ((Node) event.getTarget()).getScene().lookup("#bt_bot_" + (i-1) + "_" + j).setStyle("-fx-base: rgb(0, 246, 40);");
+                            StartPlate.getPlateau()[i-1][j].getTraits().setBas(true);
+                            StartPlate.getPlateau()[i][j].setColor("#2c3e50");
                         }
                         //check  top  0
                     } else if (!StartPlate.getPlateau()[i][j].getTraits().isBas()) {
