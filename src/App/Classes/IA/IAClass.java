@@ -120,7 +120,7 @@ public  class IAClass {
                             StartPlate.getPlateau()[i][j].getTraits().setGauche(true);
                             StartPlate.getPlateau()[i][j].setColor("#2c3e50");
                             reussi = true;
-                        }else if(i!=0){
+                        }else if(j!=0){
 
                             //            B
                             //     C      o
