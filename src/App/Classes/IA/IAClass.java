@@ -46,6 +46,7 @@ public  class IAClass {
                 if (StartPlate.getPlateau()[i][j].getPoids() == 3) {
                     //C'est le top bouton qu'on a besoin de cliquer
                     if (!StartPlate.getPlateau()[i][j].getTraits().isHaut()) {
+                        boolean reussi = false;
                         //check  top  0
                         if (i == 0) {
                             //    Button
@@ -59,6 +60,7 @@ public  class IAClass {
                             ((Node) event.getTarget()).getScene().lookup("#bt_top_" + i + "_" + j).setStyle("-fx-base: rgb(0, 246, 40);");
                             StartPlate.getPlateau()[i][j].getTraits().setHaut(true);
                             StartPlate.getPlateau()[i][j].setColor("#2c3e50");
+                            reussi = true;
                         } else if (i != 0) {
                             //B            B
                             //o     C      o
@@ -71,23 +73,39 @@ public  class IAClass {
                             StartPlate.getPlateau()[i-1][j].getTraits().setBas(true);
                             StartPlate.getPlateau()[i][j].getTraits().setHaut(true);
                             StartPlate.getPlateau()[i][j].setColor("#2c3e50");
+                            reussi = true;
                         }
-
+                        if (reussi){
+                            recalculerLesPoids(StartPlate);
+                            playEasyMode(StartPlate, event);
+                        }else {
+                            recalculerLesPoids(StartPlate);
+                        }
+                        break;
                     } else if (!StartPlate.getPlateau()[i][j].getTraits().isBas()) {
                         //check  bot  0
+                        boolean reussi = false;
                         if (i==StartPlate.getTailleDePlateau()-1){
                             ((Node) event.getTarget()).getScene().lookup("#bt_bot_" + i + "_" + j).setStyle("-fx-base: rgb(0, 246, 40);");
                             StartPlate.getPlateau()[i][j].getTraits().setBas(true);
                             StartPlate.getPlateau()[i][j].setColor("#2c3e50");
+                            reussi = true;
                         }else if(i!=StartPlate.getTailleDePlateau()-1){
                             ((Node) event.getTarget()).getScene().lookup("#bt_bot_" + i + "_" + j).setStyle("-fx-base: rgb(0, 246, 40);");
                             StartPlate.getPlateau()[i][j].getTraits().setBas(true);
                             StartPlate.getPlateau()[i+1][j].getTraits().setHaut(true);
                             StartPlate.getPlateau()[i][j].setColor("#2c3e50");
+                            reussi = true;
                         }
-
-
+                        if (reussi){
+                            recalculerLesPoids(StartPlate);
+                            playEasyMode(StartPlate, event);
+                        }else {
+                            recalculerLesPoids(StartPlate);
+                        }
+                        break;
                     } else if (!StartPlate.getPlateau()[i][j].getTraits().isGauche()) {
+                        boolean reussi = false;
                         //check left  0
                         if (j==0){
                             //B            B
@@ -101,7 +119,7 @@ public  class IAClass {
                             ((Node) event.getTarget()).getScene().lookup("#bt_left_" + i + "_" + j).setStyle("-fx-base: rgb(0, 246, 40);");
                             StartPlate.getPlateau()[i][j].getTraits().setGauche(true);
                             StartPlate.getPlateau()[i][j].setColor("#2c3e50");
-
+                            reussi = true;
                         }else if(i!=0){
 
                             //            B
@@ -115,8 +133,17 @@ public  class IAClass {
                             StartPlate.getPlateau()[i][j-1].getTraits().setDroite(true);
                             StartPlate.getPlateau()[i][j].getTraits().setGauche(true);
                             StartPlate.getPlateau()[i][j].setColor("#2c3e50");
+                            reussi = true;
                         }
+                        if (reussi){
+                            recalculerLesPoids(StartPlate);
+                            playEasyMode(StartPlate, event);
+                        }else {
+                            recalculerLesPoids(StartPlate);
+                        }
+                        break;
                     } else if (!StartPlate.getPlateau()[i][j].getTraits().isDroite()){
+                        boolean reussi = false;
                         //check right 0
                         if (j==StartPlate.getTailleDePlateau()-1){
                             //            B
@@ -129,6 +156,7 @@ public  class IAClass {
                             ((Node) event.getTarget()).getScene().lookup("#bt_right_" + i + "_" + j).setStyle("-fx-base: rgb(0, 246, 40);");
                             StartPlate.getPlateau()[i][j].getTraits().setDroite(true);
                             StartPlate.getPlateau()[i][j].setColor("#2c3e50");
+                            reussi = true;
                         } else if (j!=StartPlate.getTailleDePlateau()-1){
                             //B            B
                             //o     C      o
@@ -141,14 +169,21 @@ public  class IAClass {
                             StartPlate.getPlateau()[i][j].getTraits().setDroite(true);
                             StartPlate.getPlateau()[i][j+1].getTraits().setGauche(true);
                             StartPlate.getPlateau()[i][j].setColor("#2c3e50");
+                            reussi = true;
                         }
-
+                        if (reussi){
+                            recalculerLesPoids(StartPlate);
+                            playEasyMode(StartPlate, event);
+                        } else {
+                            recalculerLesPoids(StartPlate);
+                        }
+                        break;
                     }
 
                 }
             }
         }
-        recalculerLesPoids(StartPlate);
+
     }}
 
     
