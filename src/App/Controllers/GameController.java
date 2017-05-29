@@ -277,13 +277,10 @@ public class GameController implements Initializable {
 
                 RefreshPane(((Node) event.getTarget()).getScene().getWindow());
             //IA HERE
-            IAClass ia = new IAClass();
-            ia.playEasyMode(StartPlate, event);
+            IAClass.playEasyMode(StartPlate, event);
             RefreshPane(((Node) event.getTarget()).getScene().getWindow());
-
+            etatPlateau();
             }
-
-
     }
 
 
@@ -323,8 +320,7 @@ public class GameController implements Initializable {
                 }
             }
 
-            IAClass ia = new IAClass();
-            ia.playEasyMode(StartPlate, event);
+            IAClass.playEasyMode(StartPlate, event);
             RefreshPane(((Node) event.getTarget()).getScene().getWindow());
             etatPlateau();
 
@@ -349,11 +345,9 @@ public class GameController implements Initializable {
                 StartPlate.getPlateau()[x][y].setColor(colorPlayer);
             }
 
-            IAClass ia = new IAClass();
-            ia.playEasyMode(StartPlate, event);
+            IAClass.playEasyMode(StartPlate, event);
             RefreshPane(((Node) event.getTarget()).getScene().getWindow());
             etatPlateau();
-
         }
     }
     private class RightButtonEventHandler implements  EventHandler<Event>{
@@ -392,12 +386,9 @@ public class GameController implements Initializable {
                 }
             }
             //(Rectangle)(getNodeFromGridPane((GridPane) ((Control) event.getSource()).getParent(),1,1)
-            IAClass ia = new IAClass();
-            ia.playEasyMode(StartPlate, event);
+            IAClass.playEasyMode(StartPlate, event);
             RefreshPane(((Node) event.getTarget()).getScene().getWindow());
             etatPlateau();
-
-
         }
     }
     // tableau [] []   pour afficher les etats de chaque côtés Haut-Bas-Droite-Gauche aprés chaque tours

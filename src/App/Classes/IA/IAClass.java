@@ -13,15 +13,14 @@ import javafx.scene.layout.GridPane;
  * Created by User on 25/05/2017.
  */
 public  class IAClass {
-    public   void playEasyMode(Plateau StartPlate,Event event) {
+    public static   void playEasyMode(Plateau StartPlate,Event event) {
         for (int i = 0; i < StartPlate.getTailleDePlateau(); i++) {
             for (int j = 0; j < StartPlate.getTailleDePlateau(); j++) {
 
                 if (StartPlate.getPlateau()[i][j].getPoids() == 3) {
-
                     //C'est le top bouton qu'on a besoin de cliquer
                     if (!StartPlate.getPlateau()[i][j].getTraits().isHaut()) {
-
+                        //check  top  0
                         if (i == 0) {
                             //    Button
                             //B            B
@@ -46,17 +45,46 @@ public  class IAClass {
                             StartPlate.getPlateau()[i-1][j].getTraits().setBas(true);
                             StartPlate.getPlateau()[i][j].setColor("#2c3e50");
                         }
-                        //check  top  0
+
                     } else if (!StartPlate.getPlateau()[i][j].getTraits().isBas()) {
                         //check  bot  0
-
+                        ((Node) event.getTarget()).getScene().lookup("#bt_bot_" + i + "_" + j).setStyle("-fx-base: rgb(0, 246, 40);");
+                        StartPlate.getPlateau()[i][j].getTraits().setBas(true);
+                        StartPlate.getPlateau()[i][j].setColor("#2c3e50");
 
                     } else if (!StartPlate.getPlateau()[i][j].getTraits().isGauche()) {
                         //check left  0
+                        if (j==0){
+                            //B            B
+                            //o     C      o
+                            //u     A      u
+                            //t     S      t
+                            //o     E      o
+                            //n            n
+                            //    Button
 
-                    } else {
+                            ((Node) event.getTarget()).getScene().lookup("#bt_left_" + i + "_" + j).setStyle("-fx-base: rgb(0, 246, 40);");
+                            StartPlate.getPlateau()[i][j].getTraits().setGauche(true);
+                            StartPlate.getPlateau()[i][j].setColor("#2c3e50");
+
+                        }else if(i!=0){
+
+                            //            B
+                            //     C      o
+                            //     A      u
+                            //     S      t
+                            //     E      o
+                            //            n
+                            //    Button
+                            ((Node) event.getTarget()).getScene().lookup("#bt_right_" + i + "_" + (j-1)).setStyle("-fx-base: rgb(0, 246, 40);");
+                            StartPlate.getPlateau()[i][j-1].getTraits().setDroite(true);
+                            StartPlate.getPlateau()[i][j].setColor("#2c3e50");
+                        }
+                    } else if (!StartPlate.getPlateau()[i][j].getTraits().isDroite()){
                         //check right 0
-
+                        ((Node) event.getTarget()).getScene().lookup("#bt_right_" + i + "_" + j).setStyle("-fx-base: rgb(0, 246, 40);");
+                        StartPlate.getPlateau()[i][j].getTraits().setDroite(true);
+                        StartPlate.getPlateau()[i][j].setColor("#2c3e50");
                     }
 
                 }
