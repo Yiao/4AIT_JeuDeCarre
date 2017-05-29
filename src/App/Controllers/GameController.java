@@ -38,6 +38,7 @@ public class GameController implements Initializable {
     @FXML
             private Pane idGrid ;
     Plateau StartPlate = new Plateau();
+    IAClass ia = new IAClass();
 
     String colorPlayer ="#ffff4d";
 
@@ -277,7 +278,7 @@ public class GameController implements Initializable {
 
                 RefreshPane(((Node) event.getTarget()).getScene().getWindow());
             //IA HERE
-            IAClass.playEasyMode(StartPlate, event);
+            ia.playEasyMode(StartPlate, event);
             RefreshPane(((Node) event.getTarget()).getScene().getWindow());
             etatPlateau();
             }
@@ -320,7 +321,7 @@ public class GameController implements Initializable {
                 }
             }
 
-            IAClass.playEasyMode(StartPlate, event);
+            ia.playEasyMode(StartPlate, event);
             RefreshPane(((Node) event.getTarget()).getScene().getWindow());
             etatPlateau();
 
@@ -345,7 +346,7 @@ public class GameController implements Initializable {
                 StartPlate.getPlateau()[x][y].setColor(colorPlayer);
             }
 
-            IAClass.playEasyMode(StartPlate, event);
+            ia.playEasyMode(StartPlate, event);
             RefreshPane(((Node) event.getTarget()).getScene().getWindow());
             etatPlateau();
         }
@@ -386,7 +387,7 @@ public class GameController implements Initializable {
                 }
             }
             //(Rectangle)(getNodeFromGridPane((GridPane) ((Control) event.getSource()).getParent(),1,1)
-            IAClass.playEasyMode(StartPlate, event);
+            ia.playEasyMode(StartPlate, event);
             RefreshPane(((Node) event.getTarget()).getScene().getWindow());
             etatPlateau();
         }
@@ -418,7 +419,7 @@ public class GameController implements Initializable {
         return  tmpValeur;
     }
 
-    private int CalculerPoids(Case caseIn){
+    public int CalculerPoids(Case caseIn){
         int poidCase = 0;
         if (caseIn.getTraits().isHaut()){
             poidCase += 1;
