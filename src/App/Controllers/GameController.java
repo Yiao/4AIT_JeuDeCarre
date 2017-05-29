@@ -30,7 +30,7 @@ import java.util.ResourceBundle;
  * Created by User on 5/05/2017.
  */
 public class GameController implements Initializable {
-    int plateSize= 5;
+    int plateSize= 3;
     IAClass ia = new IAClass();
     @FXML
     private Pane idRootPane;
