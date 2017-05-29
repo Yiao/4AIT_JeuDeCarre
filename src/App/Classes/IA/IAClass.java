@@ -2,19 +2,70 @@ package App.Classes.IA;
 
 import App.Classes.Case;
 import App.Classes.Plateau;
+import App.Classes.Traits;
 import javafx.event.Event;
 import javafx.scene.Node;
 import javafx.scene.control.Control;
+import javafx.scene.layout.GridPane;
 
 
 /**
  * Created by User on 25/05/2017.
  */
 public  class IAClass {
-    public   void playEasyMode(Plateau StartPlate,Event event, String[][]tableState,String[] positionPlayed)
+    public   void playEasyMode(Plateau StartPlate,Event event) {
+        for (int i = 0; i < StartPlate.getTailleDePlateau(); i++) {
+            for (int j = 0; j < StartPlate.getTailleDePlateau(); j++) {
 
-    {
+                if (StartPlate.getPlateau()[i][j].getPoids() == 3) {
 
+                    //C'est le top bouton qu'on a besoin de cliquer
+                    if (!StartPlate.getPlateau()[i][j].getTraits().isHaut()) {
+
+                        if (i == 0) {
+                            //    Button
+                            //B            B
+                            //o     C      o
+                            //u     A      u
+                            //t     S      t
+                            //o     E      o
+                            //n            n
+                            //    Button
+                            ((Node) event.getTarget()).getScene().lookup("#bt_top_" + i + "_" + j).setStyle("-fx-base: rgb(0, 246, 40);");
+                            StartPlate.getPlateau()[i][j].getTraits().setHaut(true);
+                            StartPlate.getPlateau()[i][j].setColor("#2c3e50");
+                        } else if (i != 0) {
+                            //B            B
+                            //o     C      o
+                            //u     A      u
+                            //t     S      t
+                            //o     E      o
+                            //n            n
+                            //    Button
+                            ((Node) event.getTarget()).getScene().getWindow().getScene().lookup("#bt_bot_" + (i - 1) + "_" + j).setStyle("-fx-base: rgb(0, 246, 40);");
+                            StartPlate.getPlateau()[i - 1][j].getTraits().setBas(true);
+                            StartPlate.getPlateau()[i - 1][j].setColor("#2c3e50");
+                        }
+                        //check  top  0
+                    } else if (!StartPlate.getPlateau()[i][j].getTraits().isBas()) {
+                        //check  bot  0
+
+
+                    } else if (!StartPlate.getPlateau()[i][j].getTraits().isGauche()) {
+                        //check left  0
+
+                    } else {
+                        //check right 0
+
+                    }
+
+                }
+            }
+        }
+    }}
+
+    
+        /*
         ((Control) event.getSource()).setStyle("-fx-base: rgb(0, 246, 40);");
        // String [] positionTableau = ((Control) event.getSource()).getParent().getId().split("_");
         int x = Integer.parseInt(easyPlay(tableState)[0]);
@@ -92,4 +143,5 @@ public  class IAClass {
         }
         return poidCase;
     }
-}
+        */
+

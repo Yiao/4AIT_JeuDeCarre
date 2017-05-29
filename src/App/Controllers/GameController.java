@@ -31,7 +31,7 @@ import java.util.ResourceBundle;
  */
 public class GameController implements Initializable {
     int plateSize= 5;
-    IAClass ia = new IAClass();
+
     @FXML
     private Pane idRootPane;
     //init Plate
@@ -70,6 +70,7 @@ public class GameController implements Initializable {
 
                     //TOP Button
                     Button tmpTopButton = new Button();
+                    tmpTopButton.setId("bt_top_"+i+"_"+j);
                     tmpTopButton.setText("");
                     tmpTopButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new TopButtonEventHandler());
                     tmpTopButton.setMinSize(75, 25);
@@ -85,6 +86,7 @@ public class GameController implements Initializable {
 
                     //BOT Button
                     Button tmpBotButton = new Button();
+                    tmpBotButton.setId("bt_bot_"+i+"_"+j);
                     tmpBotButton.setText("");
                     tmpBotButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new BotButtonEventHandler());
                     tmpBotButton.setMinSize(75,25);
@@ -92,6 +94,7 @@ public class GameController implements Initializable {
 
                     //RIGHT Button
                     Button tmpRightButton = new Button();
+                    tmpRightButton.setId("bt_right_"+i+"_"+j);
                     tmpRightButton.setText("");
                     tmpRightButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new RightButtonEventHandler());
                     tmpRightButton.setMinSize(25,75);
@@ -99,6 +102,7 @@ public class GameController implements Initializable {
 
                     //LEFT Button
                     Button tmpLeftButton = new Button();
+                    tmpLeftButton.setId("bt_left_"+i+"_"+j);
                     tmpLeftButton.setText("");
                     tmpLeftButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new LeftButtonEventHandler());
                     tmpLeftButton.setMinSize(25,75);
@@ -120,6 +124,7 @@ public class GameController implements Initializable {
 
                     //TOP Button
                     Button tmpTopButton = new Button();
+                    tmpTopButton.setId("bt_top_"+i+"_"+j);
                     tmpTopButton.setText("");
                     tmpTopButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new TopButtonEventHandler());
                     tmpTopButton.setMinSize(75,25);
@@ -134,6 +139,7 @@ public class GameController implements Initializable {
 
                     //BOT Button
                     Button tmpBotButton = new Button();
+                    tmpBotButton.setId("bt_bot_"+i+"_"+j);
                     tmpBotButton.setText("");
                     tmpBotButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new BotButtonEventHandler());
                     tmpBotButton.setMinSize(75,25);
@@ -142,6 +148,7 @@ public class GameController implements Initializable {
 
                     //RIGHT Button
                     Button tmpRightButton = new Button();
+                    tmpRightButton.setId("bt_right_"+i+"_"+j);
                     tmpRightButton.setText("");
                     tmpRightButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new RightButtonEventHandler());
                     tmpRightButton.setMinSize(25,75);
@@ -171,6 +178,7 @@ public class GameController implements Initializable {
 
                     //BOT Button
                     Button tmpBotButton = new Button();
+                    tmpBotButton.setId("bt_bot_"+i+"_"+j);
                     tmpBotButton.setText("");
                     tmpBotButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new BotButtonEventHandler());
                     tmpBotButton.setMinSize(75,25);
@@ -179,6 +187,7 @@ public class GameController implements Initializable {
 
                     //RIGHT Button
                     Button tmpRightButton = new Button();
+                    tmpRightButton.setId("bt_right_"+i+"_"+j);
                     tmpRightButton.setText("");
                     tmpRightButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new RightButtonEventHandler());
                     tmpRightButton.setMinSize(25,75);
@@ -187,6 +196,7 @@ public class GameController implements Initializable {
 
                     //LEFT Button
                     Button tmpLeftButton = new Button();
+                    tmpLeftButton.setId("bt_left_"+i+"_"+j);
                     tmpLeftButton.setText("");
                     tmpLeftButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new LeftButtonEventHandler());
                     tmpLeftButton.setMinSize(25,75);
@@ -215,6 +225,7 @@ public class GameController implements Initializable {
 
                     //BOT Button
                     Button tmpBotButton = new Button();
+                    tmpBotButton.setId("bt_bot_"+i+"_"+j);
                     tmpBotButton.setText("");
                     tmpBotButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new BotButtonEventHandler());
                     tmpBotButton.setMinSize(75,25);
@@ -222,6 +233,7 @@ public class GameController implements Initializable {
 
                     //RIGHT Button
                     Button tmpRightButton = new Button();
+                    tmpRightButton.setId("bt_right_"+i+"_"+j);
                     tmpRightButton.setText("");
                     tmpRightButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new RightButtonEventHandler());
                     tmpRightButton.setMinSize(25,75);
@@ -265,7 +277,8 @@ public class GameController implements Initializable {
 
                 RefreshPane(((Node) event.getTarget()).getScene().getWindow());
             //IA HERE
-            ia.playEasyMode(StartPlate,event,etatPlateau(),positionPlayed);
+            IAClass ia = new IAClass();
+            ia.playEasyMode(StartPlate, event);
             RefreshPane(((Node) event.getTarget()).getScene().getWindow());
 
             }
@@ -310,6 +323,8 @@ public class GameController implements Initializable {
                 }
             }
 
+            IAClass ia = new IAClass();
+            ia.playEasyMode(StartPlate, event);
             RefreshPane(((Node) event.getTarget()).getScene().getWindow());
             etatPlateau();
 
@@ -334,6 +349,8 @@ public class GameController implements Initializable {
                 StartPlate.getPlateau()[x][y].setColor(colorPlayer);
             }
 
+            IAClass ia = new IAClass();
+            ia.playEasyMode(StartPlate, event);
             RefreshPane(((Node) event.getTarget()).getScene().getWindow());
             etatPlateau();
 
@@ -375,8 +392,11 @@ public class GameController implements Initializable {
                 }
             }
             //(Rectangle)(getNodeFromGridPane((GridPane) ((Control) event.getSource()).getParent(),1,1)
+            IAClass ia = new IAClass();
+            ia.playEasyMode(StartPlate, event);
             RefreshPane(((Node) event.getTarget()).getScene().getWindow());
             etatPlateau();
+
 
         }
     }
