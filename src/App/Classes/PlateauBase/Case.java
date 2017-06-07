@@ -1,4 +1,4 @@
-package App.Classes;
+package App.Classes.PlateauBase;
 
 /**
  * Created by sya on 5/22/2017.
