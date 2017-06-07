@@ -75,6 +75,7 @@ public class GameController implements Initializable {
                     //n            n
                     //    Button
 
+
                     //TOP Button
                     Button tmpTopButton = new Button();
                     tmpTopButton.setId("bt_top_" + i + "_" + j);
